@@ -12,14 +12,14 @@ function install_pkg() {
     do
         if (dpkg-query -l | awk '{print $2}' | egrep "^${pkg}$" 2>/dev/null) 
         then 
-            echo "${pkg} already installed"
+            echo "[${pkg}] already installed"
         else 
-            echo -n "[*] Trying to install ${pkg}..." 
+            echo -n "[*] Trying to install [${pkg}]..." 
             if (apt-get -y install ${pkg} 2>/dev/null)  
             then 
-                echo "[+] Succeeded!"
+                echo "[+] Succeeded"
             else
-                echo "[!] Failed!" 
+                echo "[!] Failed" 
             fi
         fi
     done 
